@@ -9,4 +9,10 @@ def alice_strategy(your_health, your_potion_ct, oppt_health, turn_number):
     AI.valid_actions["PASS"],
   ]
 
-  return random.choice(actions)
+  if your_health <= 10 and your_potion_ct > 0:
+  	return "POTION"
+
+  if your_health <= 3:
+  	return "BLOCK"
+
+  return "ATTACK"
